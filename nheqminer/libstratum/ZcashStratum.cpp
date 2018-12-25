@@ -10,7 +10,8 @@
 
 #include <iostream>
 #include <atomic>
-#include <thread>
+#include "stdio.h"
+#include <boost/thread/thread.hpp>
 #include <chrono>
 #include <boost/thread/exceptions.hpp>
 #include <boost/log/trivial.hpp>
@@ -411,7 +412,7 @@ void ZcashMiner::start()
 		minerThreadActive[i] = true;
 		minerThreads[i] = std::thread(boost::bind(&ZcashMinerThread, this, nThreads, i, solvers[i]));
 		if (solvers[i]->GetType() == SolverType::CPU) {
-#ifdef WIN32
+#ifdef _WIN32
 			HANDLE hThread = minerThreads[i].native_handle();
 			if (!SetThreadPriority(hThread, THREAD_PRIORITY_LOWEST))
 			{
