@@ -33,10 +33,6 @@
 
 #include "../../cpu_verushash/cpu_verushash.hpp"
 
-#ifdef _WIN32
-#define posix_memalign(p, a, s) (((*(p)) = _aligned_malloc((s), (a))), *(p) ?0 :errno)
-#endif
-
 thread_local thread_specific_ptr verusclhasher_key;
 thread_local thread_specific_ptr verusclhasher_descr;
 
@@ -474,7 +470,7 @@ void cpu_verushash::solve_verus_v2_opt(CBlockHeader &bh,
 	hashdonef();
 }
 
-#ifdef __WIN32
+#ifdef _WIN32
 #define posix_memalign(p, a, s) (((*(p)) = _aligned_malloc((s), (a))), *(p) ?0 :errno)
 #endif
 

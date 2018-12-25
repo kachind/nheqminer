@@ -17,7 +17,7 @@
 #include <boost/circular_buffer.hpp>
 #include "speed.hpp"
 
-#ifdef WIN32
+#ifdef _WIN32
 #include <Windows.h>
 #endif
 
@@ -762,7 +762,7 @@ void Solvers_doBenchmark(int hashes, const std::vector<ISolver *> &solvers, bool
 	for (int i = 0; i < solvers.size(); ++i) {
 		bthreads[i] = std::thread(boost::bind(&benchmark_thread, i, solvers[i]));
     }
-#ifdef WIN32
+#ifdef _WIN32
     // TODO get back to this sleep
     Sleep(1000);
 #else
@@ -772,14 +772,22 @@ void Solvers_doBenchmark(int hashes, const std::vector<ISolver *> &solvers, bool
 	BOOST_LOG_TRIVIAL(info) << "Benchmark starting... this may take several minutes, please wait...";
 
 	benchmark_work.unlock();
+	BOOST_LOG_TRIVIAL(info) << "Unlocked";
 	auto start = std::chrono::high_resolution_clock::now();
+	BOOST_LOG_TRIVIAL(info) << "started";
 
-	for (int i = 0; i < nThreads; ++i)
+
+	for (int i = 0; i < nThreads; ++i) {
+		BOOST_LOG_TRIVIAL(info) << "loop, before join";
 		bthreads[i].join();
+		BOOST_LOG_TRIVIAL(info) << "loop, after join";
 
+	}
 	auto end = std::chrono::high_resolution_clock::now();
+	BOOST_LOG_TRIVIAL(info) << "auto end = std::chrono::high_resolution_clock::now();";
 
 	uint64_t msec = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+	BOOST_LOG_TRIVIAL(info) << "uint64_t msec ";
 
 	size_t hashes_done = total_hashes - benchmark_nonces.size();
 

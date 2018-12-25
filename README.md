@@ -2,11 +2,11 @@
 
 ### Dependencies:
   - Boost 1.62+
+  - CMake 3.5+
 
 ## Windows:
 
 Download and install:
-- [CUDA SDK](https://developer.nvidia.com/cuda-downloads) (if not needed remove **USE_CUDA_TROMP** and **USE_CUDA_DJEZO** from **nheqminer** Preprocessor definitions under Properties > C/C++ > Preprocessor)
 - Visual Studio 2015 Community: https://www.visualstudio.com/en-us/news/releasenotes/vs2015-community-vs
 - [Visual Studio Update 5](https://www.microsoft.com/en-us/download/details.aspx?id=48129) installed
 - 64 bit version only
@@ -24,10 +24,26 @@ If you don't wan't to build with all solvlers you can go to **nheqminer Properti
 
 ## Linux
 Work in progress.
-Working solvers CPU_TROMP, CPU_XENONCAT,CPU_VERUSHASH, 
+Working solvers CPU_VERUSHASH,
 ### General instructions:
   - Use Boost 1.62+ (if it is not available from the repos you will have to download and build it yourself)
-  - CMake v3.5 (if it is not available from the repos you will have to download and build it yourself)
+  - CMake v3.5 (if it is not available from the repos you will have to download and build it yourself):
+  ```
+  git clone https://github.com/Kitware/CMake.git --single-branch
+  cd CMake
+  ```
+  **use --prefix=<install_prefix> option to specify a custom installation directory for CMake.**
+
+  ```
+  ./bootstrap --prefix=<install_prefix> && make && sudo make install 
+  ```
+  **use --prefix=<install_prefix> option to specify a custom installation directory for CMake.**
+  
+  ```
+
+  
+  
+  */```
   - Currently support only static building (CPU_XENONCAT, CUDA_DJEZO are enabled by default, check **CMakeLists.txt** in **nheqminer** root folder)
   - If not on Ubuntu make sure you have **fasm** installed and accessible in **PATH**
   - After that open the terminal and run the following commands:
