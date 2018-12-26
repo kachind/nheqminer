@@ -13,7 +13,7 @@
 #include <assert.h>
 
 //#include "sodium.h"
-#ifdef WIN32
+#ifdef _WIN32
 #include "compat/endian.h"
 #else
 #include <endian.h>
