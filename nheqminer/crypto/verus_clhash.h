@@ -25,7 +25,7 @@
 #else
 #include <intrin.h>
 #endif // !WIN32
-
+#include <x86intrin.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <stddef.h>
