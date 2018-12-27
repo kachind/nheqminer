@@ -8,7 +8,7 @@
 #include <stdint.h>
 #include <assert.h>
 
-#ifdef WIN32
+#ifdef _WIN32
 #include <Windows.h>
 #else
 #include <string.h>
