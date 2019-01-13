@@ -43,7 +43,7 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=x86-64 -mpclmul -msse4 -msse4.1 -msse4.2 -mssse3 -mavx -maes -g -fomit-frame-pointer -fPIC")
 
     # optimizations
-    add_definitions(-Ofast)
+    add_definitions(-O3)
 
 endif()
 
