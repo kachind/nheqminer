@@ -4,7 +4,7 @@
 ./fasm -m1024583 macro_blake2b_avx2.asm
 ./fasm -m1024583 macro_eh.asm
 ./fasm -m1024583 data_blake2b.asm
-./fasm -m1024583 proc_ehprepare_avx1.asm
-./fasm -m1024583 proc_ehprepare_avx2.asm
-./fasm -m1024583 proc_ehsolver_avx1.asm
-./fasm -m1024583 proc_ehsolver_avx2.asm
+#./fasm -m1024583 proc_ehprepare_avx1.asm
+#./fasm -m1024583 proc_ehprepare_avx2.asm
+#./fasm -m1024583 proc_ehsolver_avx1.asm
+#./fasm -m1024583 proc_ehsolver_avx2.asm
