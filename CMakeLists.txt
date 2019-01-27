@@ -225,3 +225,4 @@ if (USE_CUDA_DJEZO)
     target_link_libraries(${PROJECT_NAME} cuda_djezo)
 endif()
 
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "verusminer")
